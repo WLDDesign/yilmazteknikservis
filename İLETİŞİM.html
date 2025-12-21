@@ -410,5 +410,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function () {
+    setTimeout(function () {
+      const successMsg = document.querySelector(".u-form-send-success");
+      if (successMsg) {
+        successMsg.style.display = "block";
+      }
+    }, 500);
+  });
+});
+</script>
 
 </body></html>
