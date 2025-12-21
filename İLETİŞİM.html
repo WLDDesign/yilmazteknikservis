@@ -361,6 +361,10 @@
           </form>
         </div>
       </div>
+	<div id="custom-form-success" 
+     style="display:none; margin-top:15px; color:#2ecc71; font-weight:600;">
+  Teşekkür ederiz! Mesajınız başarıyla gönderildi.
+</div>
     </section>
     
     
@@ -380,6 +384,7 @@ document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("ESFC71Cp7PzpvKgaG");
 
   var form = document.getElementById("contact-form");
+  var successBox = document.getElementById("custom-form-success");
 
   if (!form) return;
 
@@ -391,11 +396,15 @@ document.addEventListener("DOMContentLoaded", function () {
       "template_tabws1d",
       form
     ).then(function() {
-      alert("Mesaj başarıyla gönderildi!");
+
+      successBox.style.display = "block";
       form.reset();
+
     }, function(error) {
+
       alert("Mesaj gönderilemedi. Lütfen tekrar deneyin.");
       console.log("EmailJS Error:", error);
+
     });
   });
 
